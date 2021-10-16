@@ -18,8 +18,8 @@ pipeline {
          stage('build') {
             steps {
               parallel(
-               "uglifyjs" : { sh "uglifyjs /www/css/* -o min"},
-               "cleancss" : { sh "cleancss /www/css/* -o min"} )
+               "uglifyjs" : { sh "uglifyjs www/css/* -o www/min"},
+               "cleancss" : { sh "cleancss www/css/* -o www/min"} )
             }
          }
     }
