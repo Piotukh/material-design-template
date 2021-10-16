@@ -18,8 +18,12 @@ pipeline {
             }
         }
         stage('parallel') {
+            steps {
                 parallel(
-                         "uglifyjs" : {sh 'uglifyjs /www/css/* -o min'})
+                         "uglifyjs" : {sh 'uglifyjs /www/css/* -o min'},
+                         "clean-css-cli" : {sh 'uglifyjs /www/css/* -o min'}
+                )
         }
+        }    
     }
 }
