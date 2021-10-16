@@ -1,0 +1,25 @@
+pipeline{
+    agent {
+        label 'slave1'
+    }
+    stages{
+		stage ('Checkout'){
+            steps{
+      			checkout scm  
+            } 
+   		}
+   		stage ('echo'){
+            steps{
+      	        echo Hello
+            }
+   		}
+    }
+    post{
+        success {
+            addBadge(icon: 'completed.gif', text: 'OK')
+        }
+        failure {
+            addBadge(icon: 'error.gif', text: 'Error')
+        }
+    }
+}
