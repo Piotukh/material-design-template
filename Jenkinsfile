@@ -10,6 +10,7 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
         stage('install npm') {
             steps {        
                 sh 'npm install -g uglify-js@3'
