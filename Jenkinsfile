@@ -9,18 +9,21 @@ pipeline {
                 checkout scm
             }
         }
-        stage('install npm') {
-            steps {        
-                sh 'npm install -g uglify-js@3'
-                sh 'npm install -g clean-css-cli@5.1'
-            }
-        }
+//        stage('install npm') {
+ //           steps {        
+//                sh 'npm install -g uglify-js@3'
+ //               sh 'npm install -g clean-css-cli@5.1'
+ //           }
+ //       }
          stage('build') {
              steps {
-              parallel(
-               "parh" : { sh "npm bin -g"},  
-               "uglifyjs" : { sh "uglifyjs www/css/* -o www/min"},
-               "cleancss" : { sh "cleancss www/css/* -o www/min"} )
+                 sh 'uglifyjs www/css/* -o www/min'
+                 sh 'npm bin -g'
+                 
+              //parallel(
+               //"parh" : { sh "npm bin -g"},  
+               //"uglifyjs" : { sh "uglifyjs www/css/* -o www/min"},
+              // "cleancss" : { sh "cleancss www/css/* -o www/min"} )
              }
          }
     }
