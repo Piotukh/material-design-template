@@ -10,8 +10,8 @@ pipeline {
     }
     stages {
         parallel('compression') {
-            "uglifyjs": "uglifyjs /www/css/* -o min"
-            "cleancss": "cleancss /www/css/* -o min"
+            "uglifyjs" : {'uglifyjs /www/css/* -o min'}
+            "cleancss" : {'cleancss /www/css/* -o min'}
         }
     }
 }
