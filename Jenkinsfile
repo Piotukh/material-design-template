@@ -11,6 +11,5 @@ pipeline {
     stages {
         parallel(
             "uglifyjs" : {sh 'uglifyjs /www/css/* -o min'})
-    #        "cleancss" : {sh 'cleancss /www/css/* -o min'})
     }
 }
