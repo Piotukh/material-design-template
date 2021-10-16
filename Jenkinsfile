@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label slave1
-    }
+    agent any
     tools {
         nodejs 'nodejs'
     }
