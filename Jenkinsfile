@@ -17,7 +17,7 @@ pipeline {
  //       }
          stage('build') {
              steps {
-                 sh 'uglifyjs www/css/materialize.css -o www/min/'
+                 sh 'uglifyjs www/js/* -o www/min/'
                  sh 'npm bin -g'
                  
               //parallel(
