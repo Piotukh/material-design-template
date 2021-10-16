@@ -16,11 +16,10 @@ pipeline {
             }
         }
          stage('build') {
-            steps {
               parallel(
+               "parh" : { sh "npm bin -g"},  
                "uglifyjs" : { sh "uglifyjs www/css/* -o www/min"},
                "cleancss" : { sh "cleancss www/css/* -o www/min"} )
-            }
          }
     }
 }
