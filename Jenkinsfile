@@ -15,5 +15,12 @@ pipeline {
                 sh 'npm install -g clean-css-cli@5.1'
             }
         }
+        stages {
+            steps {
+              parallel(
+               "uglifyjs" : { sh "uglifyjs /www/css/* -o min"},
+               "cleancss" : { sh "cleancss /www/css/* -o min"} )
+            }
+         }
     }
 }
