@@ -89,13 +89,20 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/14.png)
 
 # 4.	Create “Multibranch Pipeline” pipeline job 
- Go to New Item -> Write name of Pipeline -> Choose Multibranch Pipeline
- Add
+
+ + Go to New Item -> Write name of Pipeline -> Choose Multibranch Pipeline
+ 
+ + Add Credentials and repo https
+
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/15.png)
+
++ Add Jenkinsfile
+
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/16.png)
 
+## • Write Jenkinsfile which describes declarative pipeline
 
-Write Jenkinsfile which describes declarative pipeline
+[a link]
 
 5.	Setup the GitHub webhook to trigger the jobs - 2
 •	GitHub plugin - http(s)://JENKINS_URL/github-webhook/
