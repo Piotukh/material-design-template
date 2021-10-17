@@ -1,22 +1,37 @@
-1.	 Create Jenkins VM with internet access 
-•	AWS – t2.micro should be enough
+# 1.	 Create Jenkins VM with internet access 
+## •	AWS – t2.micro should be enough
 
-![Alt text]
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/1.png)
 
-•	install openjdk-8-jdk or openjdk-11-jdk, Git
+## •	install openjdk-8-jdk or openjdk-11-jdk, Git
 
     sudo apt update
     sudo apt update
     sudo apt install -y openjdk-11-jdk
     sudo apt install -y git
     
-•	install Jenkins with enabling autostart on startup
+## •	install Jenkins with enabling autostart on startup
 
-•	setup custom port 8081 for Jenkins
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    sudo apt-get install -y jenkins
+    sudo systemctl enable jenkins.service
 
-•	plugins – select plugins, add GitHub and Role-based authorization strategy
+## •	setup custom port 8081 for Jenkins
+Edited file /etc/default/jenkins (uncomment string HTTP_PORT and change port 8081)
 
-•	add new user – jenkins-NAME (your fullname, jenkins-linustorvalds)
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/2.png)
+
+    sudo systemctl restart jenkins.service
+
+## •	plugins – select plugins, add GitHub and Role-based authorization strategy
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/3.png)
+
+## •	add new user – jenkins-NAME (your fullname, jenkins-linustorvalds)
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/4.png)
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/5.png)
 
 2.	 Create Agent VM - 1
 •	openjdk-8-jre, Git
