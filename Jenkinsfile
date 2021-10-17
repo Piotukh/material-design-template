@@ -21,7 +21,7 @@ pipeline {
                  sh 'npm list -g'
              }
           }     
-          stage('compression') {         
+          stage('compressing') {         
              parallel {
                 stage('uglyfyjs') {
                     steps {
@@ -38,6 +38,11 @@ pipeline {
                      }   
                         
                  }
-             }     
+             } 
+        stage('archiving') {
+            steps {
+            
+            }
+        }
          }       
     }
