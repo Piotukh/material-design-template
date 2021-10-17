@@ -27,13 +27,13 @@ pipeline {
                     steps {
                         sh 'rm -f www/min/*.js'
                         sh 'ls -l www/js | wc -l'
-                        sh 'uglifyjs www/js/* -oe www/min/'
+                        sh 'cat www/js/* | uglifyjs -o www/min/min.js'
                      }
                 }
                 stage('cleancss') {
                     steps {
                          sh 'rm -f www/min/*.css'
-                         sh "cleancss www/css/* -oe www/min/"
+                         sh "cat www/css/* | cleancss -o www/min/min.css"
                          }
                      }   
                         
