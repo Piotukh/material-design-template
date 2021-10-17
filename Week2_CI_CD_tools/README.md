@@ -9,6 +9,9 @@
     sudo apt update
     sudo apt install -y openjdk-11-jdk
     sudo apt install -y git
+    java -version
+    
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/7.png)    
     
 ## •	install Jenkins with enabling autostart on startup
 
@@ -26,17 +29,32 @@ Edited file /etc/default/jenkins (uncomment string HTTP_PORT and change port 808
 
 ## •	plugins – select plugins, add GitHub and Role-based authorization strategy
 
-![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/3.png)
-
-## •	add new user – jenkins-NAME (your fullname, jenkins-linustorvalds)
-
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/4.png)
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/5.png)
 
-2.	 Create Agent VM - 1
-•	openjdk-8-jre, Git
-•	prepare SSH keys
-•	connect agent to master node
+## •	add new user – jenkins-NAME (your fullname, jenkins-linustorvalds)
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/3.png)
+
+# 2.	 Create Agent VM 
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/1.png)
+
+## •	openjdk-8-jre, Git
+
+    sudo apt update
+    sudo apt update
+    sudo apt install -y openjdk-8-jre
+    sudo apt install -y git
+    java -version
+    
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/6.png)    
+
+## •	prepare SSH keys
+
+
+
+## •	connect agent to master node
 3.	Configure tools – NodeJS - 1
 •	Manage Jenkins -> Global tool configuration
 -	Add NodeJS installations with version of NodeJS and global npm packages to install (uglify-js, clean-css-cli)
