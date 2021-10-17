@@ -26,7 +26,7 @@ pipeline {
                 stage('uglyfyjs') {
                     steps {
                         sh 'rm -f www/min/*.min.js'
-                        sh 'ls www/js | xarg -I{n} uglifyjs www/js/*.js -o www/min/{n}.min.js'
+                        sh 'ls www/js | xarg -I{i} uglifyjs www/js/{i} -o www/min/{i}'
                      }
                 }
                 stage('cleancss') {
