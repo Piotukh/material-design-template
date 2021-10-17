@@ -41,6 +41,7 @@ pipeline {
              } 
         stage('archiving') {
             steps {
+                sh 'tar -zcvf result.tar.gz .gitignore www/css www/js '
             
             }
         }
