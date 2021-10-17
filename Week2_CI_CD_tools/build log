@@ -1,1 +1,194 @@
+Started by user Anastasiya Piotukh
+14:04:54 Connecting to https://api.github.com using Piotukh/******
+Obtained Jenkinsfile from a1650b8f3bbbb13213df9291081f5cf618ec414b
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/brunchPipeline_anastasiyapiotukh
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential for_git
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/Piotukh/material-design-template.git
+ > git init /var/lib/jenkins/workspace/brunchPipeline_anastasiyapiotukh # timeout=10
+Fetching upstream changes from https://github.com/Piotukh/material-design-template.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --force --progress -- https://github.com/Piotukh/material-design-template.git +refs/heads/anastasiyapiotukh:refs/remotes/origin/anastasiyapiotukh # timeout=10
+ > git config remote.origin.url https://github.com/Piotukh/material-design-template.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/anastasiyapiotukh:refs/remotes/origin/anastasiyapiotukh # timeout=10
+Avoid second fetch
+Checking out Revision a1650b8f3bbbb13213df9291081f5cf618ec414b (anastasiyapiotukh)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a1650b8f3bbbb13213df9291081f5cf618ec414b # timeout=10
+Commit message: "Update Jenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential for_git
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/brunchPipeline_anastasiyapiotukh/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Piotukh/material-design-template.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/Piotukh/material-design-template.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.25.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --no-tags --force --progress -- https://github.com/Piotukh/material-design-template.git +refs/heads/anastasiyapiotukh:refs/remotes/origin/anastasiyapiotukh # timeout=10
+Checking out Revision a1650b8f3bbbb13213df9291081f5cf618ec414b (anastasiyapiotukh)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a1650b8f3bbbb13213df9291081f5cf618ec414b # timeout=10
+Commit message: "Update Jenkinsfile"
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (install npm)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ npm install -g uglify-js@3
 
+changed 1 package, and audited 2 packages in 1s
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm install -g clean-css-cli@5.1
+
+changed 15 packages, and audited 16 packages in 1s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (npm info)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ npm bin -g
+/var/lib/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin
+[Pipeline] sh
++ npm list -g
+/var/lib/jenkins/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/lib
+├── clean-css-cli@5.1.0
+├── corepack@0.9.0
+├── npm@8.0.0
+└── uglify-js@3.14.2
+
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (compressing)
+[Pipeline] parallel
+[Pipeline] { (Branch: uglyfyjs)
+[Pipeline] { (Branch: cleancss)
+[Pipeline] stage
+[Pipeline] { (uglyfyjs)
+[Pipeline] stage
+[Pipeline] { (cleancss)
+[Pipeline] tool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+[Pipeline] sh
++ rm -f www/min/custom-min.js www/min/plugin-min.js
+[Pipeline] sh
++ rm -f www/min/custom-min.css www/min/plugin-min.css
+[Pipeline] sh
++ wc -l
++ ls -l www/js
+6
+[Pipeline] sh
++ cleancss -o www/min/min.css
++ cat www/css/font-awesome.min.css www/css/materialize.css www/css/materialize.min.css www/css/style.css
++ cat www/js/init.js www/js/jquery-2.1.1.min.js www/js/materialize.js www/js/materialize.min.js www/js/modernizr.js
++ uglifyjs -o www/min/min.js
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (archiving)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ tar -zcvf result.tar.gz .gitignore www/css www/js
+.gitignore
+www/css/
+www/css/materialize.css
+www/css/style.css
+www/css/font-awesome.min.css
+www/css/materialize.min.css
+www/js/
+www/js/materialize.js
+www/js/init.js
+www/js/jquery-2.1.1.min.js
+www/js/modernizr.js
+www/js/materialize.min.js
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS
