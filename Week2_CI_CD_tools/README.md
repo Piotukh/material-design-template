@@ -73,12 +73,18 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 
 ## •	connect agent to master node
 
++ Firstly create credential. Go to Manade Jenkins - Manage Credentials
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/9.png)
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/11.png)
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/12.png)
+
+
 + sigh in Jenkins 
 + go to Manage Jenkins - Mahage Nodes and Clouds - New Node
 + ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/8.png)
 
+# 3.	Configure tools – NodeJS 
 
-3.	Configure tools – NodeJS - 1
 •	Manage Jenkins -> Global tool configuration
 -	Add NodeJS installations with version of NodeJS and global npm packages to install (uglify-js, clean-css-cli)
 4.	Create “Multibranch Pipeline” pipeline job (work inside Lab folder) - 3
