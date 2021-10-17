@@ -108,9 +108,23 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 # 5.	Setup the GitHub webhook to trigger the jobs 
 
 + Go to “Manage Jenkins” –> “Configure System” –> Locate “Github” section and “Add Github Server” 
+
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/17.png)
+
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/18.png)
+
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/19.png)
+
++ Configure WEbhooks on Github. Go to repo -> Settings -> Webhooks -> Add Webhooks
+
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/21.png)
+
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/22.png)
+
+
+
+
 
 
 
