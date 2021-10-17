@@ -78,10 +78,9 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/11.png)
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/12.png)
 
-
-+ sigh in Jenkins 
 + go to Manage Jenkins - Mahage Nodes and Clouds - New Node
 + ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/8.png)
++ ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/13.png)
 
 # 3.	Configure tools – NodeJS 
 
