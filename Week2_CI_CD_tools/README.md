@@ -103,9 +103,10 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 ## • Write Jenkinsfile which describes declarative pipeline
 
 [See Jenkinsfile](https://github.com/Piotukh/material-design-template/blob/master/Jenkinsfile)
+[See Build log]
 
-5.	Setup the GitHub webhook to trigger the jobs - 2
-•	GitHub plugin - http(s)://JENKINS_URL/github-webhook/
+# 5.	Setup the GitHub webhook to trigger the jobs 
+## •	GitHub plugin - http(s)://JENKINS_URL/github-webhook/
 -	Enable ‘GitHub hook trigger for Git SCM polling’
 
 
