@@ -88,7 +88,11 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/14.png)
 
-# 4.	Create “Multibranch Pipeline” pipeline job (work inside Lab folder) 
+# 4.	Create “Multibranch Pipeline” pipeline job 
+ Go to New Item -> Write name of Pipeline -> Choose Multibranch Pipeline
+ Add
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/15.png)
+![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/16.png)
 
 
 Write Jenkinsfile which describes declarative pipeline
