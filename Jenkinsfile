@@ -32,7 +32,7 @@ pipeline {
                 }
                 stage('cleancss') {
                     steps {
-                         sh "cleancss www/css/* -oe www/min/"
+                         sh "cleancss www/css/* -oe www/min/*"
                          }
                      }   
                         
