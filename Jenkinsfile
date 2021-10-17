@@ -15,10 +15,8 @@ pipeline {
                sh 'npm install -g clean-css-cli@5.1'
             }
          }
-         stage('build') {
+         stage('npm info') {
              steps {
-                 sh 'uglifyjs www/js/materialize.js -o www/min/1.min.js'
-                 sh 'pwd'
                  sh 'npm bin -g'
                  sh 'npm list -g'
              }
@@ -27,7 +25,8 @@ pipeline {
              parallel {
                 stage('uglyfyjs') {
                     steps {
-                       sh 'uglifyjs www/js/materialize.js -o www/min/1.min.js'
+                        sh 'rm -f www/min/*.min.js'
+                        sh 'ls www/js | xarg -I{n} uglifyjs www/js/*.js -o www/min/{n}.min.js'
                      }
                 }
                 stage('cleancss') {
