@@ -84,24 +84,17 @@ copy id_rsa.pub to Agent (/var/lib/jenkins/.ssh/)
 
 # 3.	Configure tools – NodeJS 
 
-•	Manage Jenkins -> Global tool configuration. Add NodeJS installations with version of NodeJS and global npm packages to install (uglify-js, clean-css-cli).
+## •	Manage Jenkins -> Global tool configuration. Add NodeJS installations with version of NodeJS and global npm packages to install (uglify-js, clean-css-cli).
 
 ![Alt text](https://github.com/Piotukh/material-design-template/blob/master/Week2_CI_CD_tools/14.png)
 
-4.	Create “Multibranch Pipeline” pipeline job (work inside Lab folder) - 3
-•	folder name – your name in camel case (LinusTorvalds)
-•	Git: fork https://github.com/joashp/material-design-template repo
+# 4.	Create “Multibranch Pipeline” pipeline job (work inside Lab folder) 
+
+
 Write Jenkinsfile which describes declarative pipeline
-•	define NPM tools in pipeline section
-•	Run in parallel stages for compressing JS, CSS files by using next utils:
--	Uglify-js
--	clean-css
-www/css -> www/min
-www/js -> www/min
-•	create tar archive (ignore .git, css and js folders)
-•	archive result
+
 5.	Setup the GitHub webhook to trigger the jobs - 2
 •	GitHub plugin - http(s)://JENKINS_URL/github-webhook/
 -	Enable ‘GitHub hook trigger for Git SCM polling’
-![image](https://user-images.githubusercontent.com/63563263/137626393-4466fad9-b505-41d6-a9cc-5fc989dd572b.png)
+
 
